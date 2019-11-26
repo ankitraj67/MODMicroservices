@@ -1,0 +1,155 @@
+<div class="container">
+    <br>  
+    <br>
+    <br>
+    <div>
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        <form #frm="ngForm"  [matchValue]= "['password', 'confirmpassword']">
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+            <input name="firstname" class="form-control" placeholder="First name" type="text" [(ngModel)]="mentorsignupData.firstname" ngModel #firstname="ngModel" required pattern="[a-zA-Z][a-zA-Z]*">
+        </div> <!-- form-group// -->
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+                <p *ngIf="firstname.hasError('required')">
+                    Name is required(characters with no space) !
+                </p>
+        </div>
+
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+             </div>
+            <input name="email" class="form-control" placeholder="Email address" type="email" [(ngModel)]="mentorsignupData.email" ngModel #email="ngModel" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+        </div> <!-- form-group// -->
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <p *ngIf="email.hasError('required')">
+                    Email is required !
+                </p>
+                <p *ngIf="email.hasError('pattern')">
+                    Email is invalid !
+                </p>
+        </div>
+
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <select class="custom-select" style="max-width: 120px;">
+                <option selected="">+91</option>
+                <option value="1">+00</option>
+                <option value="2">+198</option>
+                <option value="3">+701</option>
+            </select>
+            <input name="phonenumber" class="form-control" placeholder="Phone number" type="text" [(ngModel)]="mentorsignupData.phonenumber" ngModel #phonenumber="ngModel" required maxlength="10" minlength="10">
+        </div> <!-- form-group// -->
+        <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="alert alert-danger">
+                <p *ngIf="phonenumber.hasError('required')">
+                    Phonenumber is required !
+                </p>
+                <p *ngIf="phonenumber.hasError('maxlength' || 'minlength')">
+                    Phonenumber is invalid !
+                </p>
+        </div>
+
+
+
+
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-chevron-down"></i> </span>
+            </div>
+            <select class="form-control"  name="select" [(ngModel)]="mentorsignupData.select" ngModel #select="ngModel" required>
+                <option selected=""> Skills</option>
+                <option>Web Devlopment</option>
+                <option>Image Processing</option>
+                <option>Pyhon</option>
+                <option>Big Data</option>
+            </select>
+        </div> <!-- form-group end.// -->
+        <div *ngIf="select.invalid && (select.dirty || select.touched)" class="alert alert-danger">
+                <p *ngIf="select.hasError('required')">
+                     Select the specific Skills !
+                </p>
+        </div>
+
+
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-arrow-down" style="font-size:24px"></i> </span>
+             </div>
+            <input name="experience" type="number" class="form-control" placeholder="Years Of Experience" [(ngModel)]="mentorsignupData.experience" ngModel #experience="ngModel" required>
+        </div> <!-- form-group// -->
+        <div *ngIf="experience.invalid && (experience.dirty || experience.touched)" class="alert alert-danger">
+                <p *ngIf="experience.hasError('required')">
+                     Select value greater than equal to 0 !
+                </p>
+        </div>
+
+
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-dashboard" style="font-size:24px"></i> </span>
+             </div>
+            <input name="time" type="time" placeholder="Start" class="form-control" [(ngModel)]="mentorsignupData.time" ngModel #time="ngModel" required> <span style="font-weight: bold">To</span> <input name="time" type="time" placeholder="End" class="form-control" [(ngModel)]="mentorsignupData.time" ngModel #time="ngModel" required>
+        </div> <!-- form-group// -->
+        <div *ngIf="time.invalid && (time.dirty || time.touched)" class="alert alert-danger">
+            <p *ngIf="time.hasError('required')">
+                From to End time is required !
+            </p>
+        </div>
+
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="password" class="form-control" placeholder="Create password" type="password" [(ngModel)]="mentorsignupData.password" ngModel #password="ngModel" required required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$">
+        </div> <!-- form-group// -->
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                <p *ngIf="password.hasError('required')">
+                    Password is required !
+                </p>
+                <p *ngIf="password.hasError('pattern')">
+                     Password must be at least 4 characters, no more than 8 characters, and include at least one upper case, one lower case, and one digit.
+                </p>
+        </div>
+
+
+
+
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="confirmpassword" class="form-control" placeholder="Repeat password" type="password" [(ngModel)]="mentorsignupData.confirmpassword" ngModel #confirmpassword="ngModel" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$">
+        </div> <!-- form-group// -->   
+        <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)" class="alert alert-danger">
+                <p *ngIf="confirmpassword.hasError('required')">
+                    Password is required !
+                </p>
+                <p *ngIf="confirmpassword.errors?.matchValueError">
+                    Confirm Password & Password must be same.
+                </p>
+        </div> 
+        
+
+
+        <div class="form-group">
+            <button type="submit" name="button" class="btn btn-primary btn-block" [disabled]="frm.invalid" (click)="mentorsignup()"> Create Account  </button>
+        </div> <!-- form-group// -->      
+        <p class="text-center">Have an account? <a href="mentorlogin">Log In</a> </p>                                                                 
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    <br>
+    <br>
+    </div> 

@@ -1,0 +1,65 @@
+<div class="container">
+    <br>  
+    <br>
+    <br>
+    <div>
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mt-3 text-center">Add Course</h4>
+<form #addcourseForm="ngForm">
+
+        <div>
+                <div class="input-group-prepend">
+                   
+                  </div>
+             </div>
+
+    <input type="text" name="coursename"  class="form-control mb-4"
+     placeholder="Course Name" [(ngModel)]="courseData.coursename" 
+     #coursename="ngModel" required>
+    <div [class.d-none]="coursename.valid || coursename.untouched" 
+    class="alert alert-danger">
+            <p >
+                Field is required !
+            </p>
+            
+    </div>
+
+    <!-- <input type="text" name="mentorname"  class="form-control mb-4"
+     placeholder="Mentor Name" [(ngModel)]="courseData.mentorname" #mentorname="ngModel" required> -->
+    <select class="form-control mb-4" name="mentorname" required [(ngModel)]="courseData.UserId">
+        <option selected="selected" disabled>Mentor Name</option>
+        <option *ngFor="let mentor of mentorData" value="{{mentor.id}}">{{mentor.firstname}}</option>
+    </select>
+     
+
+    <input type="text" name="coursetiming"  class="form-control mb-4" 
+    placeholder="Course Timing" [(ngModel)]="courseData.coursetiming" 
+    #coursetiming="ngModel" required>
+    <div [class.d-none]="coursetiming.valid || coursetiming.untouched" 
+    class="alert alert-danger">
+            <p >
+                Field is required !
+            </p>
+            
+    </div>
+
+    <input type="text" name="coursefee" class="form-control mb-4" 
+    placeholder="Course Fee" [class.is-invalid]="coursefee.invalid
+     && coursefee.touched" [(ngModel)]="courseData.coursefee" #coursefee="ngModel">
+
+
+    <div class="form-group">
+        <textarea name="coursedetails" class="form-control rounded-0"
+         rows="3" placeholder="Course Details" [class.is-invalid]=
+         "coursedetails.invalid && coursedetails.touched" [(ngModel)]=
+         "courseData.coursedetails" #coursedetails="ngModel"></textarea>
+    </div>
+    <div>
+        {{message}}
+    </div>
+
+
+    <button class="btn btn-success button" name="btnadd" type=
+    "submit" [disabled]="addcourseForm.invalid" (click)="course()">Add</button>
+
+</form>

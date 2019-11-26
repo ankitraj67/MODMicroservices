@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="topnav">
+  <a routerLinkActive="active" routerLink="home"><i class="fa fa-fw fa-home"></i>Home</a>
+  <a routerLink="/courses" routerLinkActive="active" ><i class="fa fa-fw fa-book"></i>Courses</a>
+  <a class="danger" *ngIf="_authService.loggedIn()" style="float: right;cursor: pointer">{{"Welcome "}}</a>
+  <a routerLink="/register" routerLinkActive="active" *ngIf="!_authService.loggedIn()"><i class="fa fa-fw fa-user" ></i>Register</a>
+  <a routerLink='/login' routerLinkActive="active" *ngIf="!_authService.loggedIn()"><i class="fa fa-fw fa-user" ></i>Login</a>
+  <a routerLink="" style="float: right" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()"><i class="fa fa-fw fa-share" ></i>Logout</a>
+  <a routerLink="/aboutus" routerLinkActive="active" *ngIf="!_authService.loggedIn()" style="float: right;cursor: pointer"><i class="fa fa-credit-card"></i>About Us</a>
+  <a routerLink="/contactus" routerLinkActive="active" style="float: right;cursor: pointer"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+  
+</div>
+
+
+  <!-- <div class="container">
+      <P style="font-weight: bolder;text-align: center">WELCOME TO</P>
+      <p style="font-weight: bolder;text-align: center">MENTOR ON  DEMAND</p>
+  </div> -->
+
+<div>
+<router-outlet></router-outlet>
+</div>
+
+<script>
+        function myFunction() {
+    var x = document.getElementById("topnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+</script>
+
+
+
+
+
+

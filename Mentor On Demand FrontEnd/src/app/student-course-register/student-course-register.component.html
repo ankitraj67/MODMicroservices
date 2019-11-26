@@ -1,0 +1,35 @@
+<div class="container class" style="font-size: 16px;font-weight: bold;">
+    <!-- <div class="jumbotron"> -->
+        <div>
+            <div class="text-center">
+               <h3>Course List</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col"><button class="btn btn-success">SL. No.</button></th>
+                        <th scope="col"><button class="btn btn-success">Course Name</button></th>
+                        <th scope="col"><button class="btn btn-success">Course Fee</button></th>
+                        <th scope="col"><button class="btn btn-success">Mentor Name</button></th>
+                        <th scope="col"><button class="btn btn-success">Course Timing</button></th>
+                        <th scope="col"><button class="btn btn-success">Apply</button></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let courses of courselist,index as i">
+                        <tr>
+                        <th>{{i+1}}</th>
+                        <td>{{courses.courseName}}</td>
+                        <td>{{courses.courseFee}}</td>
+                        <td>{{courses.mentorName}}</td>
+                        <td>{{courses.courseTiming}}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning badge-pill mr-2" (click)="enrollCourse(event, _authService.loggedInUserName())"><i class="fa fa-handshake-o"></i>Register</button>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>  
+    <!-- </div> -->
+</div> 

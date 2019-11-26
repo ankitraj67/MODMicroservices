@@ -1,0 +1,45 @@
+<div class="container class" style="font-size: 16px;font-weight: bold">
+    <!-- <div class="jumbotron"> -->
+        <div>
+            <div class="text-center">
+               <h3>Mentor's List</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col"><button class="btn btn-success">SL. No.</button></th>
+                        <th scope="col"><button class="btn btn-success">First Name</button></th>
+                        <th scope="col"><button class="btn btn-success">Email</button></th>
+                        <th scope="col"><button class="btn btn-success">Phone No.</button></th>
+                        <th scope="col"><button class="btn btn-success">Skill</button></th>
+                        <th scope="col"><button class="btn btn-success">Operations</button></th>
+                        <th scope="col"><button class="btn btn-success">Action</button></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let mentorsignup of mentorlist,index as i">
+                        <tr>
+                        <th>{{i+1}}</th>
+                        <td>{{mentorsignup.firstname}}</td>
+                        <td>{{mentorsignup.email}}</td>
+                        <td>{{mentorsignup.phoneNumber}}</td>
+                        <td>{{mentorsignup.skill}}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning badge-pill mr-2"><i class="fa fa-trash"></i>Delete</button>
+                            <button type="button" class="btn btn-info badge-pill mr-2" (click)="editmentor(mentorsignup)"><i class="fa fa-edit"></i>Edit</button>
+                           </td>
+                           <td> 
+                            <div *ngIf="mentorsignup.active">
+                                 <button type="button" class="btn btn-danger badge-pill mr-2" (click)="block(mentorsignup.id)"><i class="fa fa-ban"></i>Block</button>
+                            </div>
+                                 <div *ngIf="!mentorsignup.active">
+                                 <button type="button" class="btn btn-primary badge-pill mr-2" (click)="unBlock(mentorsignup.id)"><i class="fa fa-check-circle"></i>UnBlock</button>
+                              </div>   
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>  
+    <!-- </div> -->
+</div> 

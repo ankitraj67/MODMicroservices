@@ -1,0 +1,66 @@
+<div class="container">
+    <br>  
+    <br>
+    <br>
+    <div>
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Log In</h4>
+        <form #frm="ngForm">
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+             </div>
+            <input name="email" class="form-control" placeholder="Email address" type="email" [(ngModel)]="studentloginData.email" ngModel #email="ngModel" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+        </div> <!-- form-group// -->
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <p *ngIf="email.hasError('required')">
+                    Email is required !
+                </p>
+                <p *ngIf="email.hasError('pattern')">
+                    Email is invalid !
+                </p>
+        </div>
+        <!-- <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+            </div>
+            <select class="form-control">
+                <option selected=""> Select job type</option>
+                <option>Designer</option>
+                <option>Manager</option>
+                <option>Accaunting</option>
+            </select>
+        </div> form-group end.// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="password" class="form-control" placeholder="password" type="password" [(ngModel)]="studentloginData.password" ngModel #password="ngModel" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$">
+        </div> <!-- form-group// -->  
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                <p *ngIf="password.hasError('required')">
+                    Password is required !
+                </p>
+                <p *ngIf="password.hasError('pattern')">
+                    Password must be at least 4 characters, no more than 8 characters, and include at least one upper case, one lower case, and one digit.
+                </p>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" name="button" class="btn btn-primary btn-block" [disabled]="frm.invalid" (click)="studentlogin()"> Log In  </button>
+        </div> <!-- form-group// -->
+        <div>
+            <p style="text-align: center"><a href="#" style="color: red">Forgot Password?</a></p>
+        </div>        
+        <div>
+            <h5 class="card-title mt-3 text-center">Not Registered</h5>
+        </div>
+        <div class="form-group">
+            <button type="submit" name="button" class="btn btn-primary btn-block"  (click)="studentsignup()"> Sign Up  </button>
+        </div>                                                                
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    <br>
+    <br>
+    </div> 

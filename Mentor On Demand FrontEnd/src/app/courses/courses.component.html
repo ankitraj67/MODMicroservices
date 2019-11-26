@@ -1,0 +1,20 @@
+<section>
+        <div style="margin-left:920px;">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search" [(ngModel)]="searchText" />
+              </div>
+    <div class="container">
+        <div class="card-wrapper">
+                <div class="card" *ngFor="let course of courselist| filter : searchText">
+                                <!-- <h4>Id.{{course.id}}</h4> -->
+                                <h1>{{course.courseName}}</h1>
+                                <p>{{course.courseDetails}}</p>
+                                <h4>Rs. {{course.courseFee}}/-</h4>
+                                <h4>Mentor-{{course.mentorName}}</h4>
+                                <h4>Time:{{course.courseTiming}}</h4>
+                        
+                        <a href="" class="btn " (click)="payment()">Register</a>
+                </div>
+        </div>
+    </div>
+</section>

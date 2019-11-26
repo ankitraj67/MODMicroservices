@@ -1,0 +1,66 @@
+<!-- start of navbar -->
+<nav>
+    
+    <div>
+        <div>
+            <div>
+                <!-- start sidebar -->
+                    
+                        
+                        <div class="sidebar" style="position:sticky">
+                                Hello Admin
+                            <div class="user-profile">
+                              <div class="display-avatar animated-avatar">
+                                <img class="profile-img img-lg rounded-circle" src="../../assets/images/amin1.png" alt="profile image">
+                              </div>
+                              
+                            </div>
+                            <ul class="navigation-menu">
+                            
+                            <li>
+                                <a routerLink="list" >
+                                <span class="link-title">Dashboard</span>
+                                <i class="mdi mdi-gauge link-icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="studentlist">
+                                <span class="link-title">Student List</span>
+                                <i class="mdi mdi-flask link-icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="mentorlist">
+                                    <span class="link-title">Mentor List</span>
+                                    <i class="mdi mdi-flask link-icon"></i>
+                                    </a>
+                            </li>
+                            <li>
+                                <a routerLink="courselist">
+                                    <span class="link-title">Course List</span>
+                                <i class="mdi mdi-flask link-icon"></i>
+                            </a>
+                        </li>
+                            <li>
+                                <a routerLink="addcourse">
+                                    <span class="link-title">Add Course</span>
+                                    <i class="mdi mdi-flask link-icon"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                <!-- end sidebar -->
+                <!--start topnav -->
+                    <div>
+                        <router-outlet></router-outlet>
+                    </div> 
+                <!-- end topnav -->
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- end of navbar -->
+
+<!-- start of model -->
+
+<!-- end of model -->
